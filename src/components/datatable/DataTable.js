@@ -105,6 +105,8 @@ export class DataTable extends Component {
         onValueChange: null,
         rowEditorValidator: null,
         onRowEditInit: null,
+        onRowDeleteInit:null,
+        onRowAdd:null,
         onRowEditSave: null,
         onRowEditCancel: null,
         exportFunction: null,
@@ -112,6 +114,7 @@ export class DataTable extends Component {
         customRestoreState: null,
         onStateSave: null,
         onStateRestore: null,
+        actionFormat:0
     }
 
     static propTypes = {
@@ -204,13 +207,16 @@ export class DataTable extends Component {
         onValueChange: PropTypes.func,
         rowEditorValidator: PropTypes.func,
         onRowEditInit: PropTypes.func,
+        onRowDeleteInit: PropTypes.func,
+        onRowAdd:PropTypes.func,
         onRowEditSave: PropTypes.func,
         onRowEditCancel: PropTypes.func,
         exportFunction: PropTypes.func,
         customSaveState: PropTypes.func,
         customRestoreState: PropTypes.func,
         onStateSave: PropTypes.func,
-        onStateRestore: PropTypes.func
+        onStateRestore: PropTypes.func,
+        actionFormat:PropTypes.number
     };
 
     constructor(props) {
@@ -1305,8 +1311,8 @@ export class DataTable extends Component {
                         virtualScroll={this.props.virtualScroll} virtualRowHeight={this.props.virtualRowHeight} loading={this.props.loading}
                         groupField={this.props.groupField} rowGroupMode={this.props.rowGroupMode} rowGroupHeaderTemplate={this.props.rowGroupHeaderTemplate} rowGroupFooterTemplate={this.props.rowGroupFooterTemplate}
                         sortField={this.getSortField()} rowClassName={this.props.rowClassName} onRowReorder={this.props.onRowReorder}
-                        editMode={this.props.editMode} rowEditorValidator={this.props.rowEditorValidator} onRowEditInit={this.props.onRowEditInit} onRowEditSave={this.props.onRowEditSave} onRowEditCancel={this.props.onRowEditCancel}
-                        expandableRowGroups={this.props.expandableRowGroups} showRowReorderElement={this.props.showRowReorderElement} showSelectionElement={this.props.showSelectionElement}>
+                        editMode={this.props.editMode} rowEditorValidator={this.props.rowEditorValidator} onRowEditInit={this.props.onRowEditInit} onRowDeleteInit={this.props.onRowDeleteInit} onRowAdd={this.props.onRowAdd} onRowEditSave={this.props.onRowEditSave} onRowEditCancel={this.props.onRowEditCancel}
+                        expandableRowGroups={this.props.expandableRowGroups} showRowReorderElement={this.props.showRowReorderElement} showSelectionElement={this.props.showSelectionElement} actionFormat={this.props.actionFormat}>
                         {columns}
                 </TableBody>;
     }

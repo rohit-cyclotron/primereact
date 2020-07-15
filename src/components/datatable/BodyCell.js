@@ -215,11 +215,91 @@ export class BodyCell extends Component {
                     </React.Fragment>
                 );
             }
-            else {
+            else if(!this.state.editing && this.props.actionFormat===1){
                 content = (
+                    <React.Fragment>
+                    <button type="button"  onClick={this.props.onRowAdd} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-plus p-clickable"></span>
+                    </button>
+                    <button type="button"  onClick={this.props.onRowDeleteInit} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-minus p-clickable"></span>
+                    </button>
+                    <button type="button"  className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-copy p-clickable"></span>
+                    </button>
                     <button type="button" onClick={this.props.onRowEditInit} className="p-row-editor-init p-link">
                         <span className="p-row-editor-init-icon pi pi-fw pi-pencil p-clickable"></span>
                     </button>
+                    </React.Fragment>
+                );
+            }
+            else if(!this.state.editing && this.props.actionFormat===2){
+                content = (
+                    <React.Fragment>
+                    <button type="button"  onClick={this.props.onRowAdd} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-plus p-clickable"></span>
+                    </button>
+                    </React.Fragment>
+                );
+            }
+            else if(!this.state.editing && this.props.actionFormat===3){
+                content = (
+                    <React.Fragment>
+                    <button type="button" onClick={this.props.onRowEditInit} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-pencil p-clickable"></span>
+                    </button>
+                    <button type="button"  onClick={this.props.onRowDeleteInit} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-trash p-clickable"></span>
+                    </button>
+                    </React.Fragment>
+                );
+            }
+            else if(!this.state.editing && this.props.actionFormat===4){
+                content = (
+                    <React.Fragment>
+                    <button type="button" onClick={this.props.onRowEditInit} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-pencil p-clickable"></span>
+                    </button>
+                    </React.Fragment>
+                );
+            }
+            else if(!this.state.editing && this.props.actionFormat===5){
+                content = (
+                    <React.Fragment>
+                    <button type="button"  onClick={this.props.onRowAdd} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-plus p-clickable"></span>
+                    </button>
+                    <button type="button"  onClick={this.props.onRowDeleteInit} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-minus p-clickable"></span>
+                    </button>
+                    </React.Fragment>
+                );
+            }
+            else if(!this.state.editing && this.props.actionFormat===6){
+                content = (
+                    <React.Fragment>
+                    <button type="button"  onClick={this.props.onRowAdd} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-plus p-clickable"></span>
+                    </button>
+                    <button type="button" onClick={this.props.onRowEditInit} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-pencil p-clickable"></span>
+                    </button>
+                    </React.Fragment>
+                );
+            }
+            else {
+                content = (
+                    <React.Fragment>
+                    <button type="button" onClick={this.props.onRowEditInit} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-pencil p-clickable"></span>
+                    </button>
+                    <button type="button"  onClick={this.props.onRowAdd} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-plus p-clickable"></span>
+                    </button>
+                    <button type="button"  onClick={this.props.onRowDeleteInit} className="p-row-editor-init p-link">
+                        <span className="p-row-editor-init-icon pi pi-fw pi-trash p-clickable"></span>
+                    </button>
+                    </React.Fragment>
                 );
             }
         }

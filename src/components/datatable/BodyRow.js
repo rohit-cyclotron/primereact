@@ -22,6 +22,7 @@ export class BodyRow extends Component {
         this.onDrop = this.onDrop.bind(this);
         this.onKeyDown = this.onKeyDown.bind(this);
         this.onRowEditInit = this.onRowEditInit.bind(this);
+        this.onRowDeleteInit=this.onRowDeleteInit.bind(this);
         this.onRowEditSave = this.onRowEditSave.bind(this);
         this.onRowEditCancel = this.onRowEditCancel.bind(this);
     }
@@ -183,6 +184,16 @@ export class BodyRow extends Component {
         event.preventDefault();
     }
 
+    onRowDeleteInit(event) {
+        if (this.props.onRowDeleteInit) {
+            this.props.onRowDeleteInit({
+                originalEvent: event,
+                data: this.props.rowData
+            });
+        }
+        event.preventDefault();
+    }
+
     onRowEditSave(event) {
         let valid = true;
 
@@ -253,8 +264,8 @@ export class BodyRow extends Component {
 
             let cell = <BodyCell key={i} {...column.props} value={this.props.value} rowSpan={rowSpan} rowData={this.props.rowData} rowIndex={this.props.rowIndex} onRowToggle={this.props.onRowToggle} expanded={this.props.expanded}
                         onRadioClick={this.props.onRadioClick} onCheckboxClick={this.props.onCheckboxClick} responsive={this.props.responsive} selected={this.props.selected}
-                        editMode={this.props.editMode} editing={this.state.editing} onRowEditInit={this.onRowEditInit} onRowEditSave={this.onRowEditSave} onRowEditCancel={this.onRowEditCancel} 
-                        showRowReorderElement={this.props.showRowReorderElement} showSelectionElement={this.props.showSelectionElement}/>;
+                        editMode={this.props.editMode} editing={this.state.editing} onRowEditInit={this.onRowEditInit} onRowDeleteInit={this.onRowDeleteInit} onRowAdd={this.props.onRowAdd} onRowEditSave={this.onRowEditSave} onRowEditCancel={this.onRowEditCancel} 
+                        showRowReorderElement={this.props.showRowReorderElement} showSelectionElement={this.props.showSelectionElement} actionFormat={this.props.actionFormat}/>;
 
             cells.push(cell);
         }

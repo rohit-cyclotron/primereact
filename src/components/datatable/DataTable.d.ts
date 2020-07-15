@@ -93,6 +93,7 @@ interface DataTableProps {
     onValueChange?(value: any[]): void;
     rowEditorValidator?(rowData: any): boolean;
     onRowEditInit?(e: {originalEvent: Event, data: any}): void;
+    onRowDeleteInit?(e: {originalEvent: Event, data: any}): void;    
     onRowEditSave?(e: {originalEvent: Event, data: any}): void;
     onRowEditCancel?(e: {originalEvent: Event, data: any, index: number}): void;
     exportFunction?(e: {data: any, field: string}): any;
